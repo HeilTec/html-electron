@@ -1,5 +1,5 @@
 # html-electron
-## reporter for electron-mocha 
+## html reporter for electron-mocha 
 ### Initial entry
 
 WIP
