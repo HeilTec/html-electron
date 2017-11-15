@@ -104,10 +104,11 @@ function HTML_Electron (runner) {
       hideSuitesWithout('test fail');
     }
   });
+  
+  console.log('runner:', runner)
   console.log('suite:', Object.keys(  runner.suite))
   console.log('suites:', Object.keys(  runner.suite.suites[0]))
   console.log('tests:', Object.keys(  runner.suite.suites[0].tests[0]))
-  
 
   const titles = runner.suite.suites
     .map(suite=> suite.title)
@@ -127,7 +128,7 @@ function HTML_Electron (runner) {
       .split('=')[1]
     )
     const search = fragment('<h2>[x] Search: %s</h2>',searchText)
-    const edit = fragment('<input value="%s"/>>',searchText)
+    const edit = fragment('<input style="width: 350px" value="%s"/>>',searchText)
     root.appendChild(search)
     root.appendChild(edit)
     on(search, 'click', function () {
@@ -135,11 +136,15 @@ function HTML_Electron (runner) {
     });
     let debounceTimer = undefined
     edit.addEventListener('input', function () {
-      console.log(edit.value)
       if (debounceTimer) clearTimeout(debounceTimer)
       debounceTimer = setTimeout(function () {
-        location.search = '?grep='+edit.value  
-      }, 500)  
+        try {
+          const re = new RegExp(edit.value);
+          location.search = '?grep='+edit.value  
+        } catch (error) {
+          // console.log(error)
+        }
+      }, 1500)  
     })
   
   }

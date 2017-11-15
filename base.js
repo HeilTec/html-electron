@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var tty = require('tty');
+var tty = require('./tty');
 var diff = require('diff');
 var ms = require('./ms');
 var utils = require('./utils');

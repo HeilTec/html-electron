@@ -1,0 +1,22 @@
+{
+  "name": "html_electron",
+  "version": "1.0.0",
+  "description": "mocha html reporter for electron",
+  "main": "html-electron.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mocha",
+    "electron",
+    "html",
+    "reporter"
+  ],
+  "author": "HeilTec",
+  "license": "MIT",
+  "dependencies": {
+    "diff": "^3.4.0",
+    "has-flag": "^2.0.0",
+    "supports-color": "^5.0.0"
+  }
+}
