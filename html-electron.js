@@ -120,7 +120,7 @@ function HTML_Electron (runner) {
       []
     )
 
-  console.log(titles)
+  console.log('titles:', titles)
 
   if (location.search) {
     const searchText = decodeURIComponent(location.search
